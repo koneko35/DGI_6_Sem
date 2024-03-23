@@ -1,4 +1,4 @@
-from package2 import *
+from package2.module1 import *
 
 call_name = "asd" + name
 
