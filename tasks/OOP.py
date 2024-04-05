@@ -72,10 +72,12 @@
 # zadanie 5 6
 
 class Audio_Item:
-    def __init__(self,title, artist):
+    def __init__(self,title, artist, is_liked=False):
         self.artist = artist
         self.title = title
-
+        self.is_liked = is_liked
+    def like(self):
+        return not self.is_liked
     def __str__(self):
         string_info = str(self.__dict__)
         return string_info
