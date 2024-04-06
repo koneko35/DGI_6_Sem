@@ -104,3 +104,4 @@ print(some_song)
 
 some_podcast = Podcast_Episode ('Какой-то подкаст', 'Кто-то', 123456, 'Кто-то другой')
 print(some_podcast)
+print('a')
