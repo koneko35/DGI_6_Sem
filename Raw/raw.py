@@ -1,4 +1,6 @@
-import matplotlib.pyplot as np
+import matplotlib.pyplot as plt
+import numpy as np
+
 fileobj =  open("sig.wav" , mode="rb")
 
 data = fileobj.read()
@@ -34,9 +36,16 @@ for i in range(0,audio_data_size, 2):
     amp = int.from_bytes(amp_in_bytes, byteorder= 'little', signed=True)
     music_amps.append(amp)
 
-xdata = range(0, len(music_amps)/sampl_rate, 1/sampl_rate)
+# xdata = range(0, len(music_amps)/sampl_rate, len(music_amps))
+xdata = np.linspace(0, len(music_amps)/sampl_rate, len(music_amps))
 
-np.plot(range(len(music_amps))/sampl_rate, music_amps)
-np.show()
+spectre = np.fft.fft(music_amps)
+abs_spectre = abs(spectre)
+
+# plt.plot(xdata, music_amps)
+# plt.show()
+
+plt.plot(xdata, abs_spectre)
+plt.show()
 
 pass
